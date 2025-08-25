@@ -7,7 +7,6 @@
     "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "network", "battery", "tray"],
     
-    // Модуль рабочих пространств Hyprland
     "hyprland/workspaces": {
         "format": "{name}",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -19,7 +18,6 @@
         }
     },
 
-    // Модуль активного окна
     "hyprland/window": {
         "max-length": 250,
         "separator": true,
@@ -27,14 +25,12 @@
         "tooltip": true
     },
 
-    // Модуль времени
     "clock": {
         "interval": 1,
         "format": " {:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
 
-    // Модуль звука
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": " Muted",
@@ -45,7 +41,6 @@
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
 
-    // Модуль сети
     "network": {
         "format-wifi": " {essid}",
         "format-ethernet": " {ifname}",
@@ -53,7 +48,6 @@
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
 
-    // Модуль батареи
     "battery": {
         "states": {
             "warning": 30,

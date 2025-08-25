@@ -1,0 +1,52 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Material Design Icons", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(26, 27, 38, 0.7); /* Полупрозрачный тёмно-синий */
+    color: #e0def4;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+}
+
+/* Рабочие пространства */
+#workspaces button {
+    padding: 0 8px;
+    color: #6e6a86;
+    background: transparent;
+    border-radius: 6px;
+    margin: 3px 2px;
+}
+
+#workspaces button.active {
+    color: #e0def4;
+    background: rgba(79, 70, 229, 0.6);
+}
+
+#workspaces button:hover {
+    background: rgba(79, 70, 229, 0.4);
+}
+
+/* Общие стили для модулей */
+#clock,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+    padding: 0 12px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    background: rgba(26, 27, 38, 0.8);
+}
+
+#window {
+    padding: 0 12px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    background: transparent;
+    color: #9ccfd8;
+}

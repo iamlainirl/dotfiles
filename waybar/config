@@ -3,32 +3,55 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "battery", "tray"],
-    
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "modules-left": ["hyprland/workspaces", "custom/player"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery", "clock", "tray"],
+    "gtk-layer-shell": true,
+    "exclusive": true,
+
     "hyprland/workspaces": {
-        "format": "{name}",
+        "format": "{icon}",
+        "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
         "format-icons": {
-            "default": "",
-            "active": "",
-            "urgent": ""
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "active": "➊",
+            "default": "○"
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
         }
     },
 
     "hyprland/window": {
-        "max-length": 250,
-        "separator": true,
-        "rotate": 0,
-        "tooltip": true
+        "format": "{}",
+        "max-length": 60,
+        "separate-outputs": true
     },
 
-    "clock": {
-        "interval": 1,
-        "format": " {:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "cpu": {
+        "interval": 2,
+        "format": " {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": " {used:0.1f}G",
+        "tooltip": false
     },
 
     "pulseaudio": {
@@ -37,31 +60,37 @@
         "format-icons": {
             "default": ["", "", ""]
         },
-        "scroll-step": 1,
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "tooltip": false
     },
 
     "network": {
-        "format-wifi": " {essid}",
-        "format-ethernet": " {ifname}",
-        "format-disconnected": "⚠ No connection",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+        "format": "{ifname}",
+        "format-wifi": "🦊 {essid}",
+        "format-ethernet": "🦊 ETH",
+        "format-disconnected": "🦊 OFF",
+        "tooltip-format": "{ifname} via {gwaddr} ({ipaddr})",
+        "on-click": "nm-connection-editor"
     },
 
     "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
+        "interval": 10,
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": " {:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
 
     "tray": {
-        "icon-size": 16,
-        "spacing": 8
+        "icon-size": 14,
+        "spacing": 6
     }
 }

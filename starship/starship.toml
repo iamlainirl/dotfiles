@@ -1,39 +1,42 @@
-
 format = """
-[](bg:#3B4252 fg:#81A1C1)$username[](bg:#81A1C1 fg:#3B4252)$directory[](fg:#81A1C1 bg:#2E3440)$git_branch$git_status[](fg:#2E3440 bg:#2E3440)$time[](fg:#2E3440)
-$character
-"""
-
-[username]
-style_user = "bg:#3B4252 fg:#81A1C1"
-style_root = "bg:#3B4252 fg:#BF616A"
-format = "[$user]($style)"
-show_always = false
-
-[directory]
-style = "bg:#81A1C1 fg:#3B4252"
-format = "[$path]($style)"
-truncation_length = 2
-truncation_symbol = "…/"
-
-[git_branch]
-format = "[$branch]($style)"
-style = "bg:#2E3440 fg:#81A1C1"
-
-[git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](bg:#2E3440 fg:#A3BE8C)]"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-
-[time]
-format = "[$time]($style)"
-time_format = "%R"
-style = "bg:#2E3440 fg:#81A1C1"
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
 
 [character]
-success_symbol = "[❯](fg:#A3BE8C)"
-error_symbol = "[❯](fg:#BF616A)"
+success_symbol = "[❯](#e0af68)"
+error_symbol = "[❯](#f7768e)"
+vicmd_symbol = "[❮](#9ece6a)"
+
+[directory]
+style = "#7aa2f7"
+truncation_length = 3
+truncate_to_repo = false
+
+[cmd_duration]
+min_time = 1000
+format = "took [$duration]($style)"
+style = "#e0af68"
+
+[git_branch]
+format = "on [$branch]($style)"
+style = "#bb9af7"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](red) ]($style)"
+style = "#7dcfff"
+
+[username]
+style_user = "#ffb7c5" 
+style_root = "#f7768e"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = true
+format = "@[$hostname]($style)"
+style = "#ffa07a"

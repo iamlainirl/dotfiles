@@ -1,52 +1,45 @@
-* {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Material Design Icons", sans-serif;
-    font-size: 13px;
-    min-height: 0;
-}
+* { 
+    border: none; 
+    font-family: "JetBrainsMono Nerd Font", "Iosevka Nerd Font"; 
+    font-size: 14px; 
+    min-height: 0; 
+} 
 
-window#waybar {
-    background-color: rgba(26, 27, 38, 0.7); /* Полупрозрачный тёмно-синий */
-    color: #e0def4;
-    transition: background-color 0.2s;
-    border-bottom: 1px solid rgba(79, 70, 229, 0.3);
-}
+window#waybar { 
+    background: transparent; 
+    color: #c0caf5; 
+} 
 
-/* Рабочие пространства */
-#workspaces button {
-    padding: 0 8px;
-    color: #6e6a86;
-    background: transparent;
-    border-radius: 6px;
-    margin: 3px 2px;
-}
+.modules-left, .modules-center, .modules-right { 
+    background: rgba(26, 27, 38, 0.7); 
+    border-radius: 12px; 
+    padding: 0 12px; 
+    margin: 4px 4px; 
+    border: 1px solid rgba(122, 162, 247, 0.3); 
+} 
 
-#workspaces button.active {
-    color: #e0def4;
-    background: rgba(79, 70, 229, 0.6);
-}
+#workspaces button { 
+    color: #c0caf5; 
+    padding: 0 6px; 
+} 
 
-#workspaces button:hover {
-    background: rgba(79, 70, 229, 0.4);
-}
+#workspaces button.active { 
+    color: #7aa2f7; 
+    background: rgba(122, 162, 247, 0.2); 
+    border-radius: 8px; 
+} 
 
-/* Общие стили для модулей */
-#clock,
-#pulseaudio,
-#network,
-#battery,
-#tray {
-    padding: 0 12px;
-    margin: 3px 2px;
-    border-radius: 6px;
-    background: rgba(26, 27, 38, 0.8);
-}
+#cpu, #memory, #pulseaudio, #network, #battery, #clock, #tray { 
+    padding: 0 6px; 
+} 
 
-#window {
-    padding: 0 12px;
-    margin: 3px 2px;
-    border-radius: 6px;
-    background: transparent;
-    color: #9ccfd8;
-}
+#pulseaudio { color: #7dcfff; } 
+#cpu { color: #bb9af7; } 
+#memory { color: #e0af68; } 
+#network { color: #9ece6a; } 
+#network.disconnected { color: #f7768e; } 
+#battery { color: #9ece6a; } 
+#battery.warning:not(.charging) { color: #e0af68; } 
+#battery.critical:not(.charging) { color: #f7768e; } 
+#clock { color: #c0caf5; } 
+#tray { padding-right: 8px; }
